@@ -2,6 +2,6 @@ CC=g++
 
 all: palmisland
 
-palmisland: main.cpp
-	$(CC) main.cpp -o palmisland
+palmisland: main.cpp cards.cpp cards.hpp
+	$(CC) main.cpp cards.cpp -o palmisland
 
