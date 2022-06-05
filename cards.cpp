@@ -1,7 +1,11 @@
 #ifndef __IOSTREAM_H
 #include <iostream>
 #endif
+
+#ifndef __CARDS_HPP
 #include "cards.hpp"
+#endif
+
 #include <string>
 
 /*
@@ -27,14 +31,14 @@
 void Cards::display(){
     std::cout<<"/-------\\"<<std::endl;
     std::cout<<"|0"<<number<<"     |"<<std::endl;
-    std::cout<<"| "<<pgs[active_page].get_resources()[0]<<" "<<std::endl;
+//    std::cout<<"| "<<pgs[active_page].get_resources()[0]<<" "<<std::endl;
  //   print_rsrc(pgs[active_page].get_resources());
-    std::cout<<"| "<<pgs[active_page].get_stars()<<"* ";
+//    std::cout<<"| "<<pgs[active_page].get_stars()<<"* ";
     std::cout<<name<<std::endl;
     std::cout<<"|   "<<active_page<<"   |"<<std::endl;
     std::cout<<">-------<"<<std::endl;
     std::cout<<"|   "<<get_rot_no(active_page)<<"   |"<<std::endl;
-    std::cout<<"| "<<pgs[get_rot_no(active_page)].get_stars()<<"* ";
+//    std::cout<<"| "<<pgs[get_rot_no(active_page)].get_stars()<<"* ";
     std::cout<<name<<std::endl;
     std::cout<<"\\-------/"<<std::endl;
     return;
@@ -44,11 +48,13 @@ Cards::Cards(std::string named){
     name= named; 
 }
 
+/*
 Cards::Cards(std::string named, enum Rsrc *arr){
     name= named; 
     //print_rsrc(arr);
     pgs[0] = Pages(0,arr);
 }
+*/
 
 std::string Cards::get_name(){
     return name;
@@ -73,30 +79,3 @@ void Cards::rotate(){
     active_page = get_rot_no(active_page);
     return;
 }
-
-Pages::Pages(int stars_def){
-    stars = stars_def;
-}
-
-Pages::Pages(int stars_def,enum Rsrc rsrcs[4]){
-    stars = stars_def;
-    resources[4] = rsrcs[4];
-}
-
-int Pages::get_stars(){
-    return stars;
-}
-
-enum Rsrc* Pages::get_resources(){
-    return resources;
-}
-
-/*
-void print_rsrc(enum Rsrc *arr){
-    std::cout<<arr[0]<<std::endl;
-    std::cout<<arr[1]<<std::endl;
-    std::cout<<arr[2]<<std::endl;
-    std::cout<<arr[3]<<std::endl;
-    return;
-}
-*/
