@@ -9,8 +9,13 @@ int main()
     //std::cout <<"Palm Island2\n";
     //std::string name = "Palm Island#\n";
     //std::cout << name;
-    Cards fish("fish");
+    enum Rsrc array[4]={fish,none,none,none};
+    Cards fish("fishen",array);
+//    Cards fish("fishen");
     fish.display();
-    std::cout<<"hello I'm a "<<fish.get_name()<<std::endl;
+//    fish.flip();
+ //   fish.display();
+  //  fish.rotate();
+   // fish.display();
     return 0;
 }
